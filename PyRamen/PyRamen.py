@@ -48,34 +48,40 @@ report = {}
 row_count = 0
 
 # @TODO: Loop over every row in the sales list object
-for sale in sales:
+for row in sales:
     
     # Line_Item_ID,Date,Credit_Card_Number,Quantity,Menu_Item
     # @TODO: Initialize sales data variables
-    quanity = row[3]
-    menu_item = row[4]
+    row[4] = sales_item
+    row[3] = quantity
 
     # @TODO:
     # If the item value not in the report, add it as a new entry with initialized metrics
     # Naming convention allows the keys to be ordered in logical fashion, count, revenue, cost, profit
-   
-    for sale in sales:
-        if row[4] != report:
-            report[menu_item] = {"01-count": 0, "02-revenue": 0, "03-cogs": 0, "04-profit": 0}
-            row_counter =+ 1
-        else:
-            continue 
-print(report)
+    if sales_item not in report:
+        report[sales_item] = {"01-count": 0, "02-revenue": 0, "03-cogs": 0, "04-profit": 0}
+    else:
+        continue
 
-
-    # @TODO: For every row in our sales data, loop over the menu records to determine a match
-
+    # @TODO: For every row in our sales data, loop over the menu records to determine a match 
+    for menu_row in menu:
+        
+        menu_row[0] = item
+        menu_row[3] = price
+        menu_row[4] = cost
+        
+        if menu_row[0] == sales_item:
+            print(menu_row)
+#             report[sales_item]["01-count"] += quantity
+#             report[sales_item]["02-revenue"] += price * quantity
+#             report[sales_item]["03-cogs"] += cost * quantity
+#             report[sales_item]["04-profit"] += profit * quantity
 
         # Item,Category,Description,Price,Cost
         # @TODO: Initialize menu data variables
+           
 
-
-
+    
 
         # @TODO: Calculate profit of each item in the menu data
 
@@ -91,8 +97,7 @@ print(report)
 
 
             # @TODO: Cumulatively add up the metrics for each item key
-
-
+            
 
 
 
@@ -101,7 +106,7 @@ print(report)
 
 
     # @TODO: Increment the row counter by 1
-
+            row_count +=
 
 # @TODO: Print total number of records in sales data
 
