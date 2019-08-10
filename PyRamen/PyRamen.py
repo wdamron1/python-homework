@@ -48,12 +48,12 @@ report = {}
 row_count = 0
 
 # @TODO: Loop over every row in the sales list object
-for row in sales:
+for sales_row in sales:
     
     # Line_Item_ID,Date,Credit_Card_Number,Quantity,Menu_Item
     # @TODO: Initialize sales data variables
-    row[4] = sales_item
-    row[3] = quantity
+    sales_row[4] = sales_item
+    sales_row[3] = quantity
 
     # @TODO:
     # If the item value not in the report, add it as a new entry with initialized metrics
@@ -66,11 +66,11 @@ for row in sales:
     # @TODO: For every row in our sales data, loop over the menu records to determine a match 
     for menu_row in menu:
         
-        menu_row[0] = item
-        menu_row[3] = price
-        menu_row[4] = cost
+        menu_row[0] = menu_item
+        menu_row[3] = menu_price
+        menu_row[4] = menu_cost
         
-        if menu_row[0] == sales_item:
+        if menu_item == sales_item:
             print(menu_row)
 #             report[sales_item]["01-count"] += quantity
 #             report[sales_item]["02-revenue"] += price * quantity
